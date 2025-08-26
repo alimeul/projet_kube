@@ -11,7 +11,7 @@ RUN npm run build --prod
 
 # App
 FROM nginx:alpine
-LABEL org.opencontainers.image.source="https://github.com/arthur-reaute2024/projet-todolist-ENI"
+LABEL org.opencontainers.image.source="https://github.com/alimeul/projet_kube"
 
 COPY --from=build /app/dist/frontend /usr/share/nginx/html
 

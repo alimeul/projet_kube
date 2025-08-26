@@ -10,7 +10,7 @@ COPY . .
 
 # App
 FROM node:18
-LABEL org.opencontainers.image.source="https://github.com/arthur-reaute2024/projet-todolist-ENI"
+LABEL org.opencontainers.image.source="https://github.com/alimeul2024/projet_kube"
 WORKDIR /app
 
 COPY --from=build /app .
