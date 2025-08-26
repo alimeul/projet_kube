@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front
+spec:
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - name: front
+        image: starbonker/projet-todolist-eni-frontend
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "500m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80

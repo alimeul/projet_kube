@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: starbonker/projet-todolist-eni-backend
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "500m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          value: mysql.prod.svc.cluster.local
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: user
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: password
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: db-name
+              
+
+          
