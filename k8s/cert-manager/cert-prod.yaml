@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-production
+  namespace: prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: antoine.limeul2024@campus-eni.fr
+    privateKeySecretRef:
+      name: clef-letsencrypt-prod # ou clef-letsencrypt-jeu (si staging ci-avant)
+    solvers:
+      - http01:
+          ingress:
+            ingressClassName: nginx # anciennement "class: nginx" (https://cert-manager.io/docs/releases/upgrading/ingress-class-compatibility)

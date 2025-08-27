@@ -37,7 +37,6 @@ spec:
             cpu: 200m
             memory: 1.5Gi
         env:
-          # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
