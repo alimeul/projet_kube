@@ -19,5 +19,4 @@ releases:
     version: 8.12.1
     values:
       - ./grafana.values.yaml
-      - ./grafana.secret.decode.yaml
     atomic: true

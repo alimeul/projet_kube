@@ -23,7 +23,7 @@ datasources:
 grafana.ini:
   server:
     root_url: "https://%(domain)s/"
-    domain: grafana.alimeul.com
+    domain: grafana.alimeul2024.ovh
   users:
     allow_sign_up: false
     auto_assign_org: true
@@ -56,50 +56,30 @@ dashboardProviders:
         editable: true
         options:
           path: /var/lib/grafana/dashboards/grafana-dashboards-kubernetes
-      - name: "jenkins"
-        orgId: 1
-        type: file
-        disableDeletion: true
-        editable: true
-        options:
-          path: /var/lib/grafana/dashboards/jenkins
-      - name: "Kubernetes Overview"
-        orgId: 1
-        type: file
-        disableDeletion: true
-        editable: true
-        options:
-          path: /var/lib/grafana/dashboards/k8s-overview
 
 
 dashboards:
-  grafana-dashboards-kubernetes:
-    k8s-system-api-server:
-      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json
-      token: ""
-      datasource: prometheus
-    k8s-system-coredns:
-      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-coredns.json
-      token: ""
-      datasource: prometheus
+  k8s:
     k8s-views-global:
-      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-global.json
-      token: ""
+      gnetId: 15757
+      revision: 43
       datasource: prometheus
     k8s-views-namespaces:
-      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-namespaces.json
-      token: ""
+      gnetId: 15758
+      revision: 42
       datasource: prometheus
     k8s-views-nodes:
-      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-nodes.json
-      token: ""
+      gnetId: 15759
+      revision: 37
       datasource: prometheus
     k8s-views-pods:
-      url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
-      token: ""
+      gnetId: 15760
+      revision: 36
       datasource: prometheus
-  k8s-overview:
-    k8s-overview:
-      gnetId: 15661
-      revision: 2
+    k8s-system-api-server:
+      gnetId: 15761
+      revision: 19
       datasource: prometheus
+    k8s-system-coredns:
+      gnetId: 15762
+      revision: 20
